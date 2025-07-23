@@ -12,7 +12,7 @@ This project demonstrates how to fine-tune a large pretrained model (e.g., `Dist
 
 ## What is LoRA?
 
-**LoRA** adds small **trainable low-rank matrices** to certain layers (usually attention layers like `query` and `value`). These matrices are trained while keeping the rest of the model frozen, making fine-tuning more efficient.
+**LoRA** adds small **trainable low-rank matrices** to certain layers (usually attention layers like `query`, `key`,  and `value`). These matrices are trained while keeping the rest of the model frozen, making fine-tuning more efficient.
 
 ---
 
