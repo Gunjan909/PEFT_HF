@@ -1,49 +1,44 @@
-PEFT with LoRA using Hugging Face Transformers
+#  PEFT with LoRA using Hugging Face Transformers
 
-This project demonstrates how to fine-tune a large pretrained model (e.g., DistilBERT) using Parameter-Efficient Fine-Tuning (PEFT) with the LoRA (Low-Rank Adaptation) method from the 🤗 Hugging Face PEFT library.
+This project demonstrates how to fine-tune a large pretrained model (e.g., `DistilBERT`) using **Parameter-Efficient Fine-Tuning (PEFT)** with the **LoRA** (Low-Rank Adaptation) method from the [🤗 Hugging Face PEFT library](https://github.com/huggingface/peft).
 
-What is PEFT?
+---
 
-PEFT allows you to fine-tune large language models without updating all their parameters. Instead, it updates a small number of additional parameters—saving memory and speeding up training.
+## What is PEFT?
 
-What is LoRA?
+**PEFT** allows you to fine-tune large language models without updating all their parameters. Instead, it updates a small number of additional parameters—saving memory and speeding up training.
 
-LoRA adds small trainable low-rank matrices to certain layers (usually attention layers like query and value). These matrices are trained while keeping the rest of the model frozen, making fine-tuning more efficient.
+---
 
-Dataset
+## What is LoRA?
 
-We use the AG News classification dataset, which includes news articles categorized into 4 topics:
+**LoRA** adds small **trainable low-rank matrices** to certain layers (usually attention layers like `query` and `value`). These matrices are trained while keeping the rest of the model frozen, making fine-tuning more efficient.
 
-    World
+---
 
-    Sports
+## Dataset
 
-    Business
+We use the **AG News** classification dataset, which includes news articles categorized into 4 topics:
 
-    Sci/Tech
+- World
+- Sports
+- Business
+- Sci/Tech
 
-How It Works
+---
 
-    Load a pretrained model and tokenizer (e.g., distilbert-base-uncased).
+## How It Works
 
-    Apply LoRA using the peft library to inject trainable layers.
+1. Load a pretrained model and tokenizer (e.g., `distilbert-base-uncased`).
+2. Apply LoRA using the `peft` library to inject trainable layers.
+3. Train the model using Hugging Face's `Trainer`.
+4. Save and evaluate the fine-tuned PEFT model.
 
-    Train the model using Hugging Face's Trainer.
+---
 
-    Save and evaluate the fine-tuned PEFT model.
+## Requirements
 
-Requirements
+Make sure to install the following Python packages:
 
-    transformers
-
-    datasets
-
-    peft
-
-    accelerate
-
-    scikit-learn (for evaluation)
-
-Results
-
-This approach achieves competitive accuracy while training far fewer parameters compared to full fine-tuning.
+```bash
+pip install transformers datasets peft accelerate scikit-learn
